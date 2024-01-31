@@ -22,8 +22,14 @@ const HandleChange =(props)=>{
         [props.target.name]: +props.target.value
     })
 }
+
+const isDurationValid = userInput.duration>=1
+
   return (
-    <><Header /><UserInput userInput={userInput} onChange={HandleChange}/><Results userInput={userInput}/></>
+    <><Header /><UserInput userInput={userInput} onChange={HandleChange}/>
+    {isDurationValid?<Results userInput={userInput}/>:<p style={{textAlign:'center'}}>Please enter valid duration</p>}
+    
+    </>
   );
 }
 
